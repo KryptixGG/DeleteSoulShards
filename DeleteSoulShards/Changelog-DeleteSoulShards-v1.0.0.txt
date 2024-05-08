@@ -1,4 +1,0 @@
-All the cool addons have a file like this so obviously I need one too. No clue how to do this properly though.
-
-Version 1.0.0:
-Set up the hole thing. Seems to be working fine, havent found any bugs.
