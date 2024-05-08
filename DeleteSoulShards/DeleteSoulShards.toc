@@ -3,6 +3,6 @@
 ## Notes: Automatically delete excess Soul Shards
 ## SavedVariablesPerCharacter: DeleteSoulShards
 ## Author: Kryptix
-## Version: 1.0.0
+## Version: 1.1.1
 
 DeleteSoulShards.lua
