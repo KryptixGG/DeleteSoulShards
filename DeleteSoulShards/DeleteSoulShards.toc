@@ -1,7 +1,7 @@
 ## Interface: 30300
 ## Title: DeleteSoulShards
 ## Notes: Automatically delete excess Soul Shards
-## SavedVariables: DeleteSoulShards
+## SavedVariablesPerCharacter: DeleteSoulShards
 ## Author: Kryptix
 ## Version: 1.0.0
 
