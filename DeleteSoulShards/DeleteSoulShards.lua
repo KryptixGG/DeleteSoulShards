@@ -1,12 +1,28 @@
+--creates a Namespace so i can reference f in OnEvent
+dssns = {}
+
 SLASH_DELETESOULSHARDS1, SLASH_DELETESOULSHARDS2 = '/dss', '/deletesoulshards'
 SLASH_DELETESOULSHARDSSTATUS1, SLASH_DELETESOULSHARDSSTATUS2 = '/dssstatus', '/deletesoulshardsstatus'
 SLASH_DELETESOULSHARDSMAX1, SLASH_DELETESOULSHARDSMAX2, SLASH_DELETESOULSHARDSMAX3 = '/dssmax', '/deletesoulshardsmax', '/deletesoulshardsmaximum'
 
 
 --this gets called, when one of the registered events fires
-local function OnEvent(self, event, ...)
-	if event == "ADDON_LOADED" then
-		DeleteSoulShards_InitVars()
+local function OnEvent(self, event, arg1)
+	if event == "ADDON_LOADED" and arg1 == "DeleteSoulShards" then
+	
+			--initialize Variables on warlocks and trying to deactivate the addon on non-warlocks
+		if select(2, UnitClass("player")) == "WARLOCK" then
+			DeleteSoulShards_InitVars()
+		else
+			SLASH_DELETESOULSHARDS1, SLASH_DELETESOULSHARDS2 = nil
+			SLASH_DELETESOULSHARDSSTATUS1, SLASH_DELETESOULSHARDSSTATUS2 = nil
+			SLASH_DELETESOULSHARDSMAX1, SLASH_DELETESOULSHARDSMAX2, SLASH_DELETESOULSHARDSMAX3 = nil
+			
+			dssns.f:UnregisterEvent("BAG_UPDATE")
+			dssns.f:UnregisterEvent("ADDON_LOADED")
+			dssns.f:SetScript("OnEvent", nil)
+		end
+
 	end
 	
 	local shardsToDelete = GetItemCount(6265) - DeleteSoulShards['MaxAmount']
@@ -69,7 +85,7 @@ function DeleteSoulShards_InitVars()
 end
 
 -- this has to be last, as functions need to be defined, before they can be referenced
-local f = CreateFrame("Frame")
-f:RegisterEvent("BAG_UPDATE")
-f:RegisterEvent("ADDON_LOADED")
-f:SetScript("OnEvent", OnEvent)
+dssns.f = CreateFrame("Frame")
+dssns.f:RegisterEvent("BAG_UPDATE")
+dssns.f:RegisterEvent("ADDON_LOADED")
+dssns.f:SetScript("OnEvent", OnEvent)

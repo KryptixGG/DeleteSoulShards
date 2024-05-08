@@ -1,0 +1,12 @@
+All the cool addons have a file like this so obviously I need one too. No clue how to do this properly though.
+
+Version 1.0.0:
+Set up the hole thing. Seems to be working fine, havent found any bugs.
+
+-----------------------------
+
+Version 1.1.0
+DeleteSoulShards.toc - minimal grammar changes
+DeleteSoulShards.lua - at ADDON_LOADED checks if its this addon
+		       unregisters all events and deletes all slash-commands if character is no warlock
+
