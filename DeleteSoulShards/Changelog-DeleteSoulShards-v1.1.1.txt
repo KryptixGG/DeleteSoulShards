@@ -10,3 +10,8 @@ DeleteSoulShards.toc - minimal grammar changes
 DeleteSoulShards.lua - at ADDON_LOADED checks if its this addon
 		       unregisters all events and deletes all slash-commands if character is no warlock
 
+-----------------------------
+
+Version 1.1.1
+DeleteSoulShards.toc - now saves in SavedVariables per Character and not per account
+
