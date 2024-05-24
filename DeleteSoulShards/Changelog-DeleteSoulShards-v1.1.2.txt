@@ -15,3 +15,8 @@ DeleteSoulShards.lua - at ADDON_LOADED checks if its this addon
 Version 1.1.1
 DeleteSoulShards.toc - now saves in SavedVariables per Character and not per account
 
+-----------------------------
+
+Version 1.1.2
+DeleteSoulShards.lua - Fixed lua error on first login on non-warlocks
+		       Addon now properly disables itself on non-warlocks
