@@ -21,6 +21,9 @@ local function OnEvent(self, event, arg1)
 			dssns.f:UnregisterEvent("BAG_UPDATE")
 			dssns.f:UnregisterEvent("ADDON_LOADED")
 			dssns.f:SetScript("OnEvent", nil)
+			DisableAddOn("DeleteSoulShards", GetUnitName("player"))
+			return false
+
 		end
 
 	end
